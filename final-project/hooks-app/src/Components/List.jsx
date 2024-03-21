@@ -1,14 +1,16 @@
 import "./toDoList.css";
+import React from "react";
 
-export default function Input({ todos }) {
-	console.log(todos);
+export default function Input({ todos, deleteAction }) {
 	return (
 		<div className="List">
-			{todos.map((todo) => (
-				<ul>
-					<li>{todo}</li>
-				</ul>
-			))}
+			<ul>
+				{todos.map((todo) => (
+					<li key={todo}>
+						{todo} <button onClick={deleteAction}>Delete</button>
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 }

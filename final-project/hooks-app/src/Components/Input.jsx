@@ -1,15 +1,21 @@
+import { useState } from "react";
+
 import "./toDoList.css";
 
-export default function Input() {
+export default function Input({ submitAction, action, setAction }) {
 	return (
 		<div className="Input">
-			<input
-				type="text"
-				className="input_box"
-				// value={}
-				// onChange={}
-			/>
-			<button type="submit">Submit</button>
+			<form onSubmit={submitAction}>
+				<input
+					type="text"
+					className="input_box"
+					value={action}
+					onChange={(e) => {
+						setAction(e.target.value);
+					}}
+				/>
+				<button type="submit">Submit</button>
+			</form>
 		</div>
 	);
 }

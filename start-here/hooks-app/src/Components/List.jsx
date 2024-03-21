@@ -4,11 +4,11 @@ export default function Input({ todos }) {
 	console.log(todos);
 	return (
 		<div className="List">
-			{todos.map((todo) => (
-				<ul>
-					<li>{todo}</li>
-				</ul>
-			))}
+			<ul>
+				{todos.map((todo) => (
+					<li key={todo}>{todo}</li>
+				))}
+			</ul>
 		</div>
 	);
 }
