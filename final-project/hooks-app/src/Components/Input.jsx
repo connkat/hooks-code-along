@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import "./toDoList.css";
 
 export default function Input({ submitAction, action, setAction }) {

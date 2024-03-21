@@ -6,9 +6,7 @@ export default function Input({ todos, deleteAction }) {
 		<div className="List">
 			<ul>
 				{todos.map((todo) => (
-					<li key={todo}>
-						{todo} <button onClick={deleteAction}>Delete</button>
-					</li>
+					<li key={todo}>{todo}</li>
 				))}
 			</ul>
 		</div>

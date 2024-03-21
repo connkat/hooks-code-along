@@ -76,11 +76,17 @@ const [username, setUsername] = useState("");
 
 #### NOTE: We need to use `useState` to keep track of our data so that React will know when changes occur
 
+### Props
+Props are used to pass things down from parent to child. A component is only aware of what we tell it, so React uses props to pass down thing information that it needs. Parent components are often responsible for maintaining state and making changes to state that will affect children. 
+
+### Side Effects
+
+- Question: can someone explain what a side effect is? 
+(I'll update these notes with the answer after)
+
 ### useEffect
 
-- `useEffect` is a hook that allows you to perform side effects from a functional component. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` lifecycle methods in React classes, but is unified into a single API.
-
-- Question: can someone explain what a side effect is?
+- `useEffect` is a hook that allows you to perform side effects from a functional component. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` lifecycle methods in React classes, but is unified into a single API. In other words, it decouples rendering form side effects.
 
 - useEffect takes two params:
 	- A function
@@ -92,9 +98,13 @@ useEffect(() => {
 },[${dependency}])
 ```
 
+- Put your side-effect logic into the callback function, then use the dependencies argument to control when you want the side-effect to run. That's the sole purpose of useEffect().
+- useEffect(callback, dependencies) invokes the callback after initial rendering (mounting), and on later renderings, if any value inside dependencies has changed.
+
 ### Useful Links
 
 - [ReactJS Docs](https://reactjs.org/docs/getting-started.html)
 - [MDN: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
-- [G4G: useState ](https://www.geeksforgeeks.org/what-is-usestate-in-react/)
+- [Medium: useState ](https://medium.com/@aryanyash999/all-you-need-to-know-about-react-hooks-usestate-2d493f1be3d9)
 - [Medium: useEffect](https://medium.com/@dev-john-nguyen/how-to-useeffect-in-react-97c4e6dc0a88)
+- [Infinite Loop issue](https://dmitripavlutin.com/react-useeffect-infinite-loop/)
